@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OctoPass.Api\OctoPass.Api.fsproj" />
+    <ProjectReference Include="..\OctoPass.Repository\OctoPass.Repository.fsproj" />
   </ItemGroup>
 
   <ItemGroup>

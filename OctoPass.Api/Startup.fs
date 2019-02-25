@@ -14,6 +14,7 @@ open Microsoft.AspNetCore.Cors.Infrastructure
 open OctoPass.Repository
 open System.Data
 open System.Data.SqlClient
+open WeatherServices
 
 type Startup private () =
     new (configuration: IConfiguration) as this =
@@ -27,6 +28,7 @@ type Startup private () =
 
         // Add framework services.
         services.AddScoped<IWeatherConditionRepository, WeatherConditionRepository>() |> ignore
+        services.AddScoped<IWeatherForecastService, WeatherForecastService>() |> ignore
         services.AddSingleton<IDbConnection>(new SqlConnection(this.Configuration.GetConnectionString("DefaultConnection"))) |> ignore
         services.AddCors(fun x -> x.AddPolicy("AllowWebFrontEnd", corsPolicy)) |> ignore
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2) |> ignore

@@ -5,14 +5,29 @@ open Moq.AutoMock
 open OctoPass.Controllers
 open OctoPass.Repository
 
+let weatherDescriptions = 
+    [|
+        "Freezing" 
+        "Bracing" 
+        "Chilly" 
+        "Cool" 
+        "Mild" 
+        "Warm" 
+        "Balmy" 
+        "Hot" 
+        "Sweltering" 
+        "Scorching"
+    |]
+
 [<Fact>]
 let ``My test`` () =
     let mock = AutoMocker()
     let mockRepo = mock.GetMock<IWeatherConditionRepository>()
-    let sequence = seq {for i in 1..10 -> WeatherCondition(i, "Description" + (string i))} |> List.ofSeq
+    let sequence = seq {for i in 0..weatherDescriptions.Length - 1 -> 
+                        WeatherCondition(i, weatherDescriptions.[i])} |> List.ofSeq
     mockRepo
-        .Setup(fun x -> x.getConditions)
-        .Returns(sequence) |> ignore
+        .Setup(fun x -> x.getConditionsAsync)
+        .Returns(async{return sequence}) |> ignore
 
     let controller = mock.CreateInstance<SampleDataController>()
     let result = controller.WeatherForecasts()

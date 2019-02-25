@@ -4,15 +4,18 @@ open Dapper
 open System.Data
 
 type WeatherCondition(weatherConditionId : int, description : string) =
-    member val WeatherConditionId = weatherConditionId with get, set
-    member val Description = description with get, set
+    member this.WeatherConditionId with get () = weatherConditionId
+    member this.Description with get () = description
 
 type IWeatherConditionRepository =
-    abstract getConditions : list<WeatherCondition>
+    abstract getConditionsAsync : Async<list<WeatherCondition>>
 
 type WeatherConditionRepository (connection : IDbConnection) =
     interface IWeatherConditionRepository with
-        member this.getConditions =
-            if connection.State <> ConnectionState.Open then connection.Open()
-            let sql = "SELECT * FROM dbo.WeatherCondition"
-            connection.Query<WeatherCondition>(sql) |> List.ofSeq
+        member this.getConditionsAsync =
+            async{
+                if connection.State <> ConnectionState.Open then connection.Open()
+                let sql = "SELECT * FROM dbo.WeatherCondition"
+                let! result = connection.QueryAsync<WeatherCondition>(sql) |> Async.AwaitTask
+                return result |> List.ofSeq
+            }
