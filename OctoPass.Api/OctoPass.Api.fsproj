@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Models\Quotes\QuoteModels.fs" />
     <Compile Include="Models\Weather\WeatherModels.fs" />
+    <Compile Include="Controllers\QuotesController.fs" />
     <Compile Include="Services\WeatherForecastService.fs" />
     <Compile Include="Controllers\SampleDataController.fs" />
     <Compile Include="Controllers/ValuesController.fs" />
