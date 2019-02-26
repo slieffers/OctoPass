@@ -6,6 +6,8 @@ open System.Net.Http
 open QuoteModels
 open FSharp.Data
 
+//type jsonParser = JsonProvider<quote>
+
 [<Route("api/[controller]")>]
 [<ApiController>]
 type QuotesController () =

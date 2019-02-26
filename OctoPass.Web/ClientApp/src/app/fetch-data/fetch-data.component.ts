@@ -9,8 +9,10 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
   constructor(http: HttpClient, @Inject('API_BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-      this.forecasts = result;
+    http.get<Response<WeatherForecast>>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
+      if (result.case === 'Ok') {
+        this.forecasts = result.fields[0];
+      }
     }, error => console.error(error));
   }
 }
@@ -20,4 +22,9 @@ interface WeatherForecast {
   temperatureC: number;
   temperatureF: number;
   summary: string;
+}
+
+interface Response<T> {
+  case: string;
+  fields: Array<T[]>
 }

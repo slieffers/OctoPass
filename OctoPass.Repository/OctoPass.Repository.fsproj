@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" Version="1.50.7" />
+      <PackageReference Include="FSharp.Data.SqlClient" Version="2.0.2" />
     </ItemGroup>
 
     <ItemGroup>
