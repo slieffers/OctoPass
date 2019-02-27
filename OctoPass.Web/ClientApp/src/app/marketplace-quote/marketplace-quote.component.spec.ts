@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CounterComponent } from './counter.component';
+import { MarketplaceQuoteComponent } from './marketplace-quote.component';
 
-describe('CounterComponent', () => {
-  let component: CounterComponent;
-  let fixture: ComponentFixture<CounterComponent>;
+describe('MarketplaceQuoteComponent', () => {
+  let component: MarketplaceQuoteComponent;
+  let fixture: ComponentFixture<MarketplaceQuoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterComponent ]
+      declarations: [ MarketplaceQuoteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CounterComponent);
+    fixture = TestBed.createComponent(MarketplaceQuoteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

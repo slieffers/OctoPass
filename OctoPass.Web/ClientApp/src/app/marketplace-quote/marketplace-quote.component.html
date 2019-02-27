@@ -1,0 +1,29 @@
+<h1>Marketplace Quotes</h1>
+
+<p>This is a simple example of an Angular component.</p>
+
+<p>Current count: <strong>{{ currentCount }}</strong></p>
+
+<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
+
+
+<p *ngIf="!quote"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="quote">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Expiration Date</th>
+      <th>List Id</th>
+      <th>Quote Status Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ quote.Name }}</td>
+      <td>{{ quote.ExpirationDate }}</td>
+      <td>{{ quote.ListId }}</td>
+      <td>{{ quote.QuoteStatusId }}</td>
+    </tr>
+  </tbody>
+</table>

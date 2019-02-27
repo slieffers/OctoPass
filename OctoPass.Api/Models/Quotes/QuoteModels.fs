@@ -1,7 +1,12 @@
 ﻿module QuoteModels
 
 open System
-
+type Quote = {
+        QuoteId : int;
+        Name : string;
+        ExpirationDate: string;
+        AccountId : int;
+    }
 type QuoteModel () =
     member val QuoteId : int = 0 with get, set
     member val Name : string = "" with get, set

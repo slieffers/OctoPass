@@ -27,7 +27,7 @@ type Startup private () =
         let corsPolicy = corsPolicyBuilder.WithOrigins("https://localhost:44375").Build()
 
         // Add framework services.
-        services.AddScoped<IWeatherConditionRepository, WeatherConditionRepository>() |> ignore
+        //services.AddScoped<IWeatherConditionRepository, WeatherConditionRepository>() |> ignore
         services.AddScoped<IWeatherForecastService, WeatherForecastService>() |> ignore
         services.AddSingleton<IDbConnection>(new SqlConnection(this.Configuration.GetConnectionString("DefaultConnection"))) |> ignore
         services.AddCors(fun x -> x.AddPolicy("AllowWebFrontEnd", corsPolicy)) |> ignore
