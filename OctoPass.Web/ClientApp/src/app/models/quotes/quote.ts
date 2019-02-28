@@ -1,4 +1,6 @@
-interface IQuote {
+import { IAddress } from "../addresses/address";
+
+export interface IQuote {
   QuoteId: number;
   Name: string;
   ExpirationDate: Date;
@@ -16,4 +18,11 @@ interface IQuote {
   TaxErrorMessage: string;
   LineItemCount: number;
   ClarkAccountId: number;
+  PricingLocation: string;
+  SelectedShippingCalculation: string;
+  InternalComments: string;
+  ExternalNotes: string;
+  QuoteStatus: string;
+
+  ShippingAddress: IAddress;
 };

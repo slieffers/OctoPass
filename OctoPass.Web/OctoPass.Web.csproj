@@ -26,11 +26,11 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\address.ts" />
+    <None Remove="ClientApp\src\app\models\city.ts" />
+    <None Remove="ClientApp\src\app\models\country.ts" />
     <None Remove="ClientApp\src\app\models\quote.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="ClientApp\src\app\models\address.ts" />
+    <None Remove="ClientApp\src\app\models\stateprovince.ts" />
+    <None Remove="ClientApp\src\app\models\zipcode.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +38,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\models\quote.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\addresses\address.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\addresses\city.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\addresses\country.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\quotes\quote.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\addresses\stateprovince.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\addresses\zipcode.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

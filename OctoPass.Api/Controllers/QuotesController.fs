@@ -5,6 +5,15 @@ open FSharp.Data
 
 type jsonParser = JsonProvider<"http://localhost:51335/api/quotes/octopass/1">
 
+type ApiCallResult = 
+    | Good of OkObjectResult
+    | Error of NotFoundObjectResult
+
+type NotFound = {
+        Status : string;
+        Message : string;
+        Errors : string[]
+    }
 [<Route("api/[controller]")>]
 [<ApiController>]
 type QuotesController () =
@@ -19,9 +28,9 @@ type QuotesController () =
     [<HttpGet("{id}")>]
     member this.Get(id:int) =
         try
-            (jsonParser.AsyncLoad("http://localhost:51335/api/quotes/octopass/" + (string id)) |> Async.RunSynchronously).Data |> string
+            jsonParser.AsyncLoad("http://localhost:51335/api/quotes/octopass/" + (string id)) |> Async.RunSynchronously |> string
         with
-        | :? System.InvalidOperationException as ex -> ex.Message
+        | ex -> ex.InnerException.Message
 
     [<HttpPost>]
     member this.Post([<FromBody>] value:string) =

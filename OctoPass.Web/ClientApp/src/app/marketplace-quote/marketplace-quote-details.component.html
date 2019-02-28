@@ -1,0 +1,54 @@
+<div>
+  <div class="row col-md-16" style="padding-bottom: 15px">
+    <div class="col-md-8" style="padding-right: 15px">
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4"><label>Name</label></div>
+        <div class="col-md-7 form-control">{{quote.Name}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4"><label>Expiration Date</label></div>
+        <div class="col-md-7 form-control">{{quote.ExpirationDate}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4"><label>Shipping Address</label></div>
+        <div class="col-md-7 form-control">{{quote.ShippingAddress.FormattedAddress}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4"><label>Pricing Location</label></div>
+        <div class="col-md-7 form-control">{{quote.PricingLocation}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4"><label>Shipping Calculation</label></div>
+        <div class="col-md-7 form-control">{{quote.SelectedShippingCalculation}}</div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row" style="padding-bottom: 15px">
+        <div class="col-md-4"><label>Internal Notes</label></div>
+        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.InternalNotes}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 15px">
+        <div class="col-md-4"><label>External Notes</label></div>
+        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.ExternalNotes}}</div>
+      </div>
+      <div class="row" style="padding-bottom: 15px">
+        <div class="col-md-4"><label>Quote Status</label></div>
+        <div class="col-md-7 form-control">{{quote.QuoteStatus}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div id="ItemsArea" class="row" style="margin-left: 15px; padding-bottom: 30px">
+    @{ Html.RenderPartial("ListBody", Model.List, new ViewDataDictionary { { "PricingLocationId", Model.PricingLocationId } }); }
+  </div>
+
+  <div id="ShippingArea" class="row col-md-16">
+    <hr />
+    @{ Html.RenderPartial("ShippingPartial", Model); }
+  </div>
+
+  <div id="TotalsArea" class="row col-md-16" style="padding-bottom: 15px">
+    <hr />
+    @{ Html.RenderPartial("TotalsWithVendorPartial", Model.TotalCollection); }
+  </div>-->
+</div>

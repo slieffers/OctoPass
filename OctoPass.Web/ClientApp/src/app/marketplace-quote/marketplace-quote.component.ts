@@ -1,42 +1,59 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { IQuote } from '../models/quotes/quote';
 
 @Component({
   selector: 'app-marketplace-quote-component',
-  templateUrl: './marketplace-quote.component.html'
+  templateUrl: './marketplace-quote.component.html',
+  styleUrls: ['./marketplace-quote.component.css']
 })
 export class MarketplaceQuoteComponent {
   public quote: IQuote;
+  public selectedQuoteId: number;
+  public retrievingQuote: boolean;
+  public errorMessage: string;
+  public retrievalMessage: string;
 
-  constructor(http: HttpClient, @Inject('API_BASE_URL') baseUrl: string) {
-    
-    http.get<IQuote>(baseUrl + 'api/quotes/1').subscribe(result => {
-      this.quote = result;
-      console.log(this.quote.Name)
-    }, error => console.error(error));
+  constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseApiUrl: string) {
+  }
+
+  retrieveQuote(): void {
+    this.errorMessage = null;
+    this.retrievingQuote = true;
+    this.retrievalMessage = null;
+
+    this.http.get<IResponse<IQuote>>(this.baseApiUrl + 'api/quotes/' + this.selectedQuoteId.toString()).subscribe(
+      result => {
+        this.quote = result.Data;
+        this.retrievalMessage = result.Message;
+        this.retrievingQuote = false;
+      }, (error: IError) => {
+        console.error(error);
+        this.errorMessage = error.error.text;
+        this.retrievingQuote = false;
+      });
+  }
+
+  clearStatuses() {
+    this.errorMessage = null;
+    this.retrievingQuote = false;
+    this.retrievalMessage = null;
   }
 }
 
-interface IResponse<T> {
-  case: string;
-  fields: Array<T>
+interface IError {
+  error: IErrorText;
 }
-export class IQuote {
-  QuoteId: number;
-  Name: string;
-  ExpirationDate: Date;
-  AccountId: number;
-  ListId: number;
-  OrderHeaderId: number;
-  PricingLocationId: number;
-  QuoteStatusId: number;
-  ShippingAccountAddressId: number;
-  DateCreated: Date;
-  DateUpdated: Date;
-  DateDeleted: Date;
-  TaxCodeAndRateId: number;
-  Tax?: number;
-  TaxErrorMessage: string;
-  LineItemCount: number;
-  ClarkAccountId: number;
-};
+interface IErrorText {
+  text: string;
+}
+interface IResponse<T> {
+  Data: T;
+  Errors: string[];
+  Message: string;
+  Status: string;
+}
+
+interface IQuoteResponse {
+  jsonValue: IQuote;
+}

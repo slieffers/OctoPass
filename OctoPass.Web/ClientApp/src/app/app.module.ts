@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { MarketplaceQuoteComponent } from './marketplace-quote/marketplace-quote.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { MarketplaceQuoteDetailsComponent } from './marketplace-quote/marketplace-quote-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     NavMenuComponent,
     HomeComponent,
     MarketplaceQuoteComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    MarketplaceQuoteDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

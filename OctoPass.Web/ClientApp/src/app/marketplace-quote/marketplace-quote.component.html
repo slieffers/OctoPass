@@ -1,29 +1,22 @@
 <h1>Marketplace Quotes</h1>
 
-<p>This is a simple example of an Angular component.</p>
+<p>Enter the Id of the Quote to view:</p>
 
-<p>Current count: <strong>{{ currentCount }}</strong></p>
+<input type="number" [(ngModel)]="selectedQuoteId"  (input)="clearStatuses()"/>
 
-<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
+<button *ngIf="!retrievingQuote" class="btn btn-primary" (click)="retrieveQuote()">Retrieve Quote</button>
 
+<div *ngIf="retrievingQuote">
+  <p>Retrieving id: <strong>{{ selectedQuoteId }}</strong></p>
+</div>
+<div *ngIf="retrievalMessage" class="status-message-ok">
+  <p>Quote with id {{ selectedQuoteId }}: <strong>{{ retrievalMessage }}</strong></p>
+</div>
 
-<p *ngIf="!quote"><em>Loading...</em></p>
-
-<table class='table table-striped' *ngIf="quote">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Expiration Date</th>
-      <th>List Id</th>
-      <th>Quote Status Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ quote.Name }}</td>
-      <td>{{ quote.ExpirationDate }}</td>
-      <td>{{ quote.ListId }}</td>
-      <td>{{ quote.QuoteStatusId }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="!errorMessage">
+  <p *ngIf="retrievingQuote"><em>Loading...</em></p>
+  <app-marketplace-quote-details-component *ngIf="quote" [quote]="quote"></app-marketplace-quote-details-component>
+</div>
+<div *ngIf="errorMessage" class="status-message-failure">
+  <p>Quote with id {{ selectedQuoteId }}: <strong>{{ errorMessage }}</strong></p>
+</div>
