@@ -28,6 +28,10 @@
     <None Remove="ClientApp\src\app\models\address.ts" />
     <None Remove="ClientApp\src\app\models\city.ts" />
     <None Remove="ClientApp\src\app\models\country.ts" />
+    <None Remove="ClientApp\src\app\models\items\itemlisting.ts" />
+    <None Remove="ClientApp\src\app\models\lists\list.ts" />
+    <None Remove="ClientApp\src\app\models\lists\listitem.ts" />
+    <None Remove="ClientApp\src\app\models\lists\listitemprice.ts" />
     <None Remove="ClientApp\src\app\models\quote.ts" />
     <None Remove="ClientApp\src\app\models\stateprovince.ts" />
     <None Remove="ClientApp\src\app\models\zipcode.ts" />
@@ -41,6 +45,10 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\address.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\city.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\country.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\items\itemlisting.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\lists\list.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\lists\listitem.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\lists\listitemprice.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\quotes\quote.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\stateprovince.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\zipcode.ts" />

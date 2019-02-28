@@ -38,11 +38,11 @@
     </div>
   </div>
 
-  <!--<div id="ItemsArea" class="row" style="margin-left: 15px; padding-bottom: 30px">
-    @{ Html.RenderPartial("ListBody", Model.List, new ViewDataDictionary { { "PricingLocationId", Model.PricingLocationId } }); }
+  <div id="ItemsArea" class="row" style="margin-left: 15px; padding-bottom: 30px">
+    <app-marketplace-quote-details-list-component *ngIf="quote.List" [list]="quote.List"></app-marketplace-quote-details-list-component>
   </div>
 
-  <div id="ShippingArea" class="row col-md-16">
+  <!--<div id="ShippingArea" class="row col-md-16">
     <hr />
     @{ Html.RenderPartial("ShippingPartial", Model); }
   </div>

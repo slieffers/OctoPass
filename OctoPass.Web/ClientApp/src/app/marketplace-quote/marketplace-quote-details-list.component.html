@@ -1,0 +1,48 @@
+<div class="row">
+  <table id="ListItemsTable" class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Item Number</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Available</th>
+        <!--<th>P-Code</th>
+        <th style="display:none">P-Code Adjustment</th>-->
+        <th>Price</th>
+        <th>Total Price</th>
+        <th>Ea Cost</th>
+        <th>Total Cost</th>
+        <!--<th>GP %</th>
+        <th>Profit Margin</th>
+        <th style="text-align: center">Free Shipping</th>-->
+      </tr>
+    </thead>
+
+    <tbody *ngIf="list" class="itemsBody">
+      <tr *ngFor="let listItem of list.ListItems">
+        <td>{{listItem.Item.ItemNumber}}</td>
+        <td>{{listItem.Item.Description}}</td>
+        <td>{{listItem.Quantity}}</td>
+        <td *ngIf="listItem.Item.IsAvailable">Available</td>
+        <td *ngIf="!listItem.Item.IsAvailable">Not Available</td>
+        <td>{{listItem.Price.Price}}</td>
+        <td>{{listItem.TotalPrice}}</td>
+        <td>{{listItem.Item.Cost}}</td>
+        <td>{{listItem.TotalCost}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--<div class="row" style="padding-top: 30px">
+  <table id="M1TItemsTable" style="display:block;">
+    <tbody class="customItemsBody">
+      @foreach (var customItem in Model.CustomListItems.OrderBy(li => li.SortOrder))
+      {
+      Html.RenderPartial("~/Features/Quotes/CustomItemRow.cshtml", customItem);
+      }
+    </tbody>
+
+  </table>
+</div>
+    -->

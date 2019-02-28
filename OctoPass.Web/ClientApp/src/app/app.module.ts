@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { MarketplaceQuoteComponent } from './marketplace-quote/marketplace-quote.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MarketplaceQuoteDetailsComponent } from './marketplace-quote/marketplace-quote-details.component';
+import { MarketplaceQuoteDetailsListComponent } from './marketplace-quote/marketplace-quote-details-list.component';
+import { MarketplaceQuoteDetailsListItemComponent } from './marketplace-quote/marketplace-quote-details-list-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MarketplaceQuoteDetailsComponent } from './marketplace-quote/marketplac
     HomeComponent,
     MarketplaceQuoteComponent,
     FetchDataComponent,
-    MarketplaceQuoteDetailsComponent
+    MarketplaceQuoteDetailsComponent,
+    MarketplaceQuoteDetailsListComponent,
+    MarketplaceQuoteDetailsListItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

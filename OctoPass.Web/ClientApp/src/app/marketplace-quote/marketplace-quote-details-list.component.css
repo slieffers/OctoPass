@@ -1,0 +1,13 @@
+#M1TItemsTable {
+  display: block;
+}
+
+  #M1TItemsTable td {
+    display: inline-block;
+    vertical-align: bottom
+  }
+
+  #M1TItemsTable th {
+    display: inline-block;
+    vertical-align: top
+  }

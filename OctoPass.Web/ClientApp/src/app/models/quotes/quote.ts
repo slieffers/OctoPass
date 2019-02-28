@@ -1,4 +1,5 @@
 import { IAddress } from "../addresses/address";
+import { IList } from "../lists/list";
 
 export interface IQuote {
   QuoteId: number;
@@ -25,4 +26,5 @@ export interface IQuote {
   QuoteStatus: string;
 
   ShippingAddress: IAddress;
+  List: IList;
 };

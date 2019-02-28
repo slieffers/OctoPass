@@ -1,0 +1,65 @@
+<!--<tr class="list-item-row">-->
+  <td class="item-number col-md-2">{{listItem.Item.ItemNumber}}</td>
+
+  <td class="col-md-3">{{listItem.Item.Description}}</td>
+
+  <td class="row-quantity col-md-1">{{listItem.Quantity}}</td>
+
+  <td *ngIf="listItem.Item.IsAvailable" class="row-available col-md-2">Available</td>
+  <td *ngIf="!listItem.Item.IsAvailable" class="row-available col-md-2">Not Available</td>
+
+  <!--<td class="col-md-1">
+    @if (Model.Item.Prices.Any(p => p.LocationId == Model.SelectedPricingLocationId && p.Price > 0))
+    {
+    @Html.DropDownListFor(model => Model.PriceLevelId,
+    new SelectList(Model.Item.Prices.Where(p => p.LocationId == Model.SelectedPricingLocationId && p.Price > 0), "PriceLevelId", "PriceLevel.Level"),
+    "-Select-",
+    new { @class = "row-select-price-level form-control" });
+    }
+    else
+    {
+    @Html.DropDownListFor(model => Model.PriceLevelId, new SelectList(new List<BaseItemPriceViewModel>
+      ()),
+      new { @class = "row-select-price-level form-control" });
+      }
+  </td>-->
+  <!--<td class="price-level-adjustment-column col-md-1" style="display:none">
+    @Html.TextBoxFor(model => model.PriceLevelPercentAdjustment, new { @class = "row-price-level-adjustment form-control", @type = "number", @step = "0.01" })
+  </td>-->
+
+  <td class="row-price col-md-1">{{listItem.Price}}</td>
+
+  <td class="row-total-price col-md-1">{{listItem.TotalPrice}}</td>
+
+  <td class="row-cost col-md-1">{{listItem.Item.Cost}}</td>
+
+  <td class="row-total-cost col-md-1">{{listItem.Cost * listItem.Quantity}}</td>
+
+  <!--<td class="row-gross-profit col-md-2">
+    @Html.TextBoxFor(model => model.GrossProfit,
+    new {
+    oninput = "validity.valid||(value='');",
+    @class= "form-control",
+    type = "number",
+    step = "1",
+    min = -99,
+    max = 100
+    })
+  </td>
+
+  <td class="row-profit-margin col-md-1">
+    @Html.DisplayFor(model => model.DisplayProfitMargin)
+  </td>
+
+  <td style="text-align: center" class="col-md-1">
+    @Html.CheckBoxFor(model => model.IsFreeShipping, new { @class = "row-is-free-shipping form-control input-sm" })
+  </td>
+
+  if (hideItemCommentField == null || !(bool)hideItemCommentField)
+  {
+  <td id="itemRowComment" class="col-md-2">
+    @Html.EditorFor(model => model.Comment.Content, new {@class = "form-control"})
+  </td>
+  }
+  }-->
+  <!--</tr>-->
