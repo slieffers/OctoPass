@@ -1,44 +1,50 @@
 ﻿module QuoteModels
 
 open System
+
+type QuoteItem = {
+    ItemId: int;
+    ItemNumber: string;
+    Description: string;
+    IsAvailable: bool;
+}
+
+type QuoteListItem = {
+    ItemId: int;
+    IdsItemId: int;
+    Quantity: int;
+    SortOrder: int;
+    TotalPrice: decimal;
+    ItemPrice: decimal;
+    Cost: decimal;
+    TotalCost: decimal;
+
+    Item: QuoteItem;
+}
+
+type QuoteList = {
+    Name: string;
+    SortOrder: int;
+
+    ListItems: seq<QuoteListItem>;
+}
+
 type Quote = {
-        QuoteId : int;
-        Name : string;
-        ExpirationDate: string;
-        AccountId : int;
-    }
-type QuoteModel () =
-    member val QuoteId : int = 0 with get, set
-    member val Name : string = "" with get, set
-    member val ExpirationDate : DateTime option = None with get, set
-    member val AccountId : int = 0 with get, set
-    member val ListId : int = 0 with get, set
-    member val OrderHeaderId : int option = None with get, set
-    member val PricingLocationId : int = 0 with get, set
-    member val QuoteStatusId : int = 0 with get, set
-    member val ShippingAccountAddressId : int = 0 with get, set
+    QuoteId : int;
+    Name : string;
+    ExpirationDate: DateTime;
+    AccountId : int;
+    FormattedAddress: string;
+    OrderHeaderId: int;
+    Tax: decimal;
+    TaxErrorMessage: string;
+    LineItemCount: int;
+    PricingLocation: string;
+    SelectedShippingCalculation: string;
+    InternalComments: string;
+    ExternalNotes: string;
+    QuoteStatus: string;
+    ClarkAssociate: string;
 
-    member val DateCreated : DateTime = DateTime.MinValue with get, set
-    member val DateUpdated : DateTime = DateTime.MinValue with get, set
-    member val DateDeleted : DateTime option = None with get, set
-
-    member val TaxCodeAndRateId : int = 0 with get, set
-    member val Tax : decimal option = None with get, set
-    member val TaxErrorMessage : string = "" with get, set
-    //member val AddressWithRelationshipsDomainModel ShippingAddress with get, set
-    //member val QuoteShippingCalculationDomainModel ShippingCalculation with get, set = new QuoteShippingCalculationDomainModel();
-    //member val QuoteStatusDomainModel Status with get, set
-    //member val int LineItemCount : int = 0 with get, set
-
-    //member val ShippingOptionsDomainModel ShippingOptions with get, set
-        
-    //member val QuoteListDomainModel List with get, set
-
-    //member val IEnumerable<CommentWithTypeDomainModel> Comments with get, set =
-    //    new List<CommentWithTypeDomainModel>();
-
-    //member val QuotesTotalCollectionDomainModel TotalCollection =>
-    //    new QuotesTotalCollectionDomainModel(List.ListItems, List.CustomListItems, ShippingCalculation?.Cost ?? 0.00M, ShippingCalculation?.Price ?? 0.00M, Tax ?? 0);
-
-    //member val short ClarkAccountId with get, set
-    //member val ClarkAccountDomainModel ClarkAccount with get, set
+    List: QuoteList;
+}

@@ -3,43 +3,43 @@
     <div class="col-md-8" style="padding-right: 15px">
       <div class="row" style="padding-bottom: 10px">
         <div class="col-md-4"><label>Name</label></div>
-        <div class="col-md-7 form-control">{{quote.Name}}</div>
+        <div class="col-md-7 form-control">{{quote.name}}</div>
       </div>
       <div class="row" style="padding-bottom: 10px">
         <div class="col-md-4"><label>Expiration Date</label></div>
-        <div class="col-md-7 form-control">{{quote.ExpirationDate}}</div>
+        <div class="col-md-7 form-control">{{quote.expirationDate}}</div>
       </div>
       <div class="row" style="padding-bottom: 10px">
         <div class="col-md-4"><label>Shipping Address</label></div>
-        <div class="col-md-7 form-control">{{quote.ShippingAddress.FormattedAddress}}</div>
+        <div class="col-md-7 form-control">{{quote.formattedAddress}}</div>
       </div>
       <div class="row" style="padding-bottom: 10px">
         <div class="col-md-4"><label>Pricing Location</label></div>
-        <div class="col-md-7 form-control">{{quote.PricingLocation}}</div>
+        <div class="col-md-7 form-control">{{quote.pricingLocation}}</div>
       </div>
       <div class="row" style="padding-bottom: 10px">
         <div class="col-md-4"><label>Shipping Calculation</label></div>
-        <div class="col-md-7 form-control">{{quote.SelectedShippingCalculation}}</div>
+        <div class="col-md-7 form-control">{{quote.selectedShippingCalculation}}</div>
       </div>
     </div>
     <div class="col-md-8">
       <div class="row" style="padding-bottom: 15px">
         <div class="col-md-4"><label>Internal Notes</label></div>
-        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.InternalNotes}}</div>
+        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.internalNotes}}</div>
       </div>
       <div class="row" style="padding-bottom: 15px">
         <div class="col-md-4"><label>External Notes</label></div>
-        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.ExternalNotes}}</div>
+        <div class="col-md-7 form-control" style="padding-bottom: 15px">{{quote.externalNotes}}</div>
       </div>
       <div class="row" style="padding-bottom: 15px">
         <div class="col-md-4"><label>Quote Status</label></div>
-        <div class="col-md-7 form-control">{{quote.QuoteStatus}}</div>
+        <div class="col-md-7 form-control">{{quote.quoteStatus}}</div>
       </div>
     </div>
   </div>
 
   <div id="ItemsArea" class="row" style="margin-left: 15px; padding-bottom: 30px">
-    <app-marketplace-quote-details-list-component *ngIf="quote.List" [list]="quote.List"></app-marketplace-quote-details-list-component>
+    <app-marketplace-quote-details-list-component *ngIf="quote.list" [list]="quote.list"></app-marketplace-quote-details-list-component>
   </div>
 
   <!--<div id="ShippingArea" class="row col-md-16">

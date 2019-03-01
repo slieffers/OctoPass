@@ -6,4 +6,4 @@ type WeatherForecast (dateFormatted : string, temperatureC : int, summary : stri
     member this.Summary with get () = summary
 
     member this.TemperatureF =
-        (float 32 + float this.TemperatureC) / 0.5556 |> int;
+        (float 32 + float this.TemperatureC) / 0.5556 |> int

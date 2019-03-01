@@ -19,16 +19,16 @@
     </thead>
 
     <tbody *ngIf="list" class="itemsBody">
-      <tr *ngFor="let listItem of list.ListItems">
-        <td>{{listItem.Item.ItemNumber}}</td>
-        <td>{{listItem.Item.Description}}</td>
-        <td>{{listItem.Quantity}}</td>
-        <td *ngIf="listItem.Item.IsAvailable">Available</td>
-        <td *ngIf="!listItem.Item.IsAvailable">Not Available</td>
-        <td>{{listItem.Price.Price}}</td>
-        <td>{{listItem.TotalPrice}}</td>
-        <td>{{listItem.Item.Cost}}</td>
-        <td>{{listItem.TotalCost}}</td>
+      <tr *ngFor="let listItem of list.listItems">
+        <td>{{listItem.item.itemNumber}}</td>
+        <td>{{listItem.item.description}}</td>
+        <td>{{listItem.quantity}}</td>
+        <td *ngIf="listItem.item.isAvailable">Available</td>
+        <td *ngIf="!listItem.item.isAvailable">Not Available</td>
+        <td>{{listItem.itemPrice}}</td>
+        <td>{{listItem.totalPrice}}</td>
+        <td>{{listItem.itemCost}}</td>
+        <td>{{listItem.totalCost}}</td>
       </tr>
     </tbody>
   </table>

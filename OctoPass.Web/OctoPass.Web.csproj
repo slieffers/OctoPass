@@ -19,8 +19,12 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="Controllers\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="Controllers\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
@@ -28,6 +32,7 @@
     <None Remove="ClientApp\src\app\models\address.ts" />
     <None Remove="ClientApp\src\app\models\city.ts" />
     <None Remove="ClientApp\src\app\models\country.ts" />
+    <None Remove="ClientApp\src\app\models\http\response.ts" />
     <None Remove="ClientApp\src\app\models\items\itemlisting.ts" />
     <None Remove="ClientApp\src\app\models\lists\list.ts" />
     <None Remove="ClientApp\src\app\models\lists\listitem.ts" />
@@ -38,13 +43,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\address.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\city.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\addresses\country.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\http\response.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\items\itemlisting.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\lists\list.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\lists\listitem.ts" />

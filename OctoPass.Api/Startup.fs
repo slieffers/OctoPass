@@ -15,6 +15,8 @@ open OctoPass.Repository
 open System.Data
 open System.Data.SqlClient
 open WeatherServices
+open System.Net.Http.Formatting
+open Microsoft.AspNetCore.Mvc.Formatters
 
 type Startup private () =
     new (configuration: IConfiguration) as this =
@@ -31,7 +33,7 @@ type Startup private () =
         services.AddScoped<IWeatherForecastService, WeatherForecastService>() |> ignore
         services.AddSingleton<IDbConnection>(new SqlConnection(this.Configuration.GetConnectionString("DefaultConnection"))) |> ignore
         services.AddCors(fun x -> x.AddPolicy("AllowWebFrontEnd", corsPolicy)) |> ignore
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2) |> ignore
+        services.AddMvc() |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, env: IHostingEnvironment) =

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { IQuote } from '../models/quotes/quote';
+import { Response } from '../models/http/response';
 
 @Component({
   selector: 'app-marketplace-quote-component',
@@ -22,10 +23,10 @@ export class MarketplaceQuoteComponent {
     this.retrievingQuote = true;
     this.retrievalMessage = null;
 
-    this.http.get<IResponse<IQuote>>(this.baseApiUrl + 'api/quotes/' + this.selectedQuoteId.toString()).subscribe(
+    this.http.get<Response<IQuote>>(this.baseApiUrl + 'api/quotes/' + this.selectedQuoteId.toString()).subscribe(
       result => {
-        this.quote = result.Data;
-        this.retrievalMessage = result.Message;
+        this.quote = result.value;
+        this.retrievalMessage = result.statusResult;
         this.retrievingQuote = false;
       }, (error: IError) => {
         console.error(error);
@@ -47,13 +48,13 @@ interface IError {
 interface IErrorText {
   text: string;
 }
-interface IResponse<T> {
-  Data: T;
-  Errors: string[];
-  Message: string;
-  Status: string;
-}
+//interface IResponse<T> {
+//  Data: T;
+//  Errors: string[];
+//  Message: string;
+//  Status: string;
+//}
 
-interface IQuoteResponse {
-  jsonValue: IQuote;
-}
+//interface IQuoteResponse {
+//  jsonValue: IQuote;
+//}
